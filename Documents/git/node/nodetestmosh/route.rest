@@ -1,0 +1,28 @@
+GET http://localhost:2000/subscribers
+
+
+###
+GET http://localhost:2000/subscribers/5d3ebf9a3d11fc4bc00fe071
+
+###
+POST  http://localhost:2000/subscribers 
+Content-Type: application/json
+
+{
+    "name":"Reza Shoja",
+    "subscribedToChannel":"Web Dev"
+}
+
+
+###
+DELETE  http://localhost:2000/subscribers/5d3ebf9a3d11fc4bc00fe071
+
+
+###
+PATCH   http://localhost:2000/subscribers/5d3ecf4f91074e4260dccd27
+Content-Type: application/json
+
+{
+    "name":"Reza Shoja 2",
+    "subscribedToChannel":"Node Js"
+}
