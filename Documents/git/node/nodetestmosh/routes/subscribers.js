@@ -1,18 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Subscriber = require ('../models/subscriber');
-
+const verifyToken = require ('../auth/auth');
 
 //Getting all
-router.get('/',async(req,res) => {
+router.get('/',verifyToken,async(req,res) => {
     
     try{
-        const subscribers = await Subscriber.find();
-        // find get all the subscribers 
-        res.json(subscribers);
+        
+                const subscribers = await Subscriber.find();
+                // find get all the subscribers 
+                res.json(subscribers);
+               
+        
     }
     catch(err){
-        res.status(500).json({message:erro.message});
+        res.status(500).json({message:err.message});
 
         // 500 : error on Server 
     }
@@ -32,10 +35,10 @@ router.post('/',async (req,res) => {
     try {
         const newSubscriber = await subscriber.save();
         res.status(201).json(newSubscriber);
-        // 201 means sth is created sucessfully
+        // 201 means sth is created successfully
     } catch (error) {
         res.status(400).json({message : error.message});
-        // 400 mean sth bad happend
+        // 400 mean sth bad happened
 
     }
 })
@@ -50,7 +53,7 @@ router.patch('/:id',getSubscriber,async (req,res) => {
     
     try {
         const updatedSubscriber = await res.subscriber.save();
-        res.status(200).json({message :"Recored Updated"});
+        res.status(200).json({message :"Record Updated"});
       
   } catch (error) {
       return res.status(500).json({message :error.message});
@@ -60,7 +63,7 @@ router.patch('/:id',getSubscriber,async (req,res) => {
 router.delete('/:id',getSubscriber,async (req,res) => {
     try {
           await res.subscriber.remove();
-          res.status(200).json({message :"Recored Deleted"});
+          res.status(200).json({message :"Record Deleted"});
         
     } catch (error) {
         return res.status(500).json({message :error.message});

@@ -1,6 +1,7 @@
 GET http://localhost:2000/subscribers
 
 
+
 ###
 GET http://localhost:2000/subscribers/5d3ebf9a3d11fc4bc00fe071
 
@@ -26,3 +27,13 @@ Content-Type: application/json
     "name":"Reza Shoja 2",
     "subscribedToChannel":"Node Js"
 }
+
+
+###
+POST http://localhost:2000/api/login
+
+###
+// Get Data with Token
+GET http://localhost:2000/subscribers
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkhhbWlkIiwiZW1haWwiOiJIc2hvamFAbGl2ZS5jb20ifSwiaWF0IjoxNTY0NTY2NzQ1LCJleHAiOjE1NjQ1NjY3NzV9.KvlWj8FctWWVtRd1MFH9uNU9_TTIkgsbDVa7hLjLorc
+

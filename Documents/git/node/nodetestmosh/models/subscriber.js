@@ -1,6 +1,6 @@
 const Mongoose =require( "mongoose");
 
-const subcriberSchema = new Mongoose.Schema ({
+const subscriberSchema = new Mongoose.Schema ({
     name : {
         type : String,
         required: true
@@ -9,11 +9,11 @@ const subcriberSchema = new Mongoose.Schema ({
         type : String,
         required: true
     },
-    subsscriberDate : {
+    subscriberDate : {
         type : Date,
         default: Date.now,  
         required: true
     },
 });
 
- module.exports = Mongoose.model('Subscriber',subcriberSchema);
+ module.exports = Mongoose.model('Subscriber',subscriberSchema);
